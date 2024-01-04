@@ -1,9 +1,9 @@
 /*
 Copyright 2021 IBM All Rights Reserved.
-
+/wini testing git in visal code ide
 SPDX-License-Identifier: Apache-2.0
 */
-
+//wini testing line
 package main
 
 import (
