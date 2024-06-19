@@ -1,0 +1,878 @@
+    1  ifconfig
+    2  sudo apt install net-tools
+    3  sudo dpkg --set-selections < installed-pacakages.txt
+    4  sudo dpkg --set-selections < installed-pacakges.txt 
+    5  sudo apt-get dselect-upgrade
+    6  gcc
+    7  wget -h
+    8  dpkg --get-selections
+    9  guile
+   10  sudo apt-get install g++ make libssl-dev libgmp-dev libsqlite3-dev libsqlite3-dev libbz2-dev libcurl4-gnutls-dev 
+   11  apt --fix-broken install
+   12  sudo apt --fix-broken install
+   13  sudo apt-get install g++ make libssl-dev libgmp-dev libsqlite3-dev libsqlite3-dev libbz2-dev libcurl4-gnutls-dev 
+   14  wget https://git.savannah.gnu.org/cgit/guix.git/plain/etc/guix-install.sh
+   15  chmod +x guix-install.sh
+   16  sudo ./guix-install.sh
+   17  sudo nano ~/.bashrc
+   18  source ~/.bashrc
+   19  source ~/.profile
+   20  export GUIX_PROFILE="$HOME/.guix-profile"
+   21  . "$GUIX_PROFILE/etc/profile"
+   22  export PATH="$GUIX_PROFILE/bin:$GUIX_PROFILE/sbin:$PATH"
+   23  ls -la ~/.guix-profile
+   24  sudo nano ~/.bashrc
+   25  guix --version
+   26  sudo nano .bashrc 
+   27  ls -la ~/.guix-profile
+   28  sudo guix-daemon --build-users-group=guixbuild
+   29  grep guix
+   30  ls -a
+   31  cd .config/
+   32  ls
+   33  sudo apt-get install curl
+   34  docker --version
+   35  lsb
+   36  close
+   37  go version
+   38  sudo docker ps 
+   39  cd go/src/github.com/hyperledger/fabric-samples/asset-transfer-basic/chaincode-go
+   40  ls
+   41  go mod tidy
+   42  cd ..
+   43  cd ../../..
+   44  ls
+   45  cd hyperledger/
+   46  cd fabric-samples/
+   47  cd test-network
+   48  ls
+   49  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+   50  go pwd
+   51  cd 
+   52  cd go/bin
+   53  ls
+   54  cd ..
+   55  ls
+   56  cd src
+   57  ls
+   58  which go
+   59  modprobe kvm
+   60  modprobe kvm_amd
+   61  sudo modprobe kvm_amd
+   62  sudo modprobe kvm
+   63  lsmod | grep kvm
+   64  ls -al /dev/kvm
+   65  sudo usermod -aG kvm $USER
+   66  # Add Docker's official GPG key:
+   67  sudo apt-get update
+   68  sudo apt-get install ca-certificates curl gnupg
+   69  sudo install -m 0755 -d /etc/apt/keyrings
+   70  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+   71  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   72  # Add the repository to Apt sources:
+   73  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+   74    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   75  sudo apt-get update
+   76  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   77  docker --version 
+   78  docker-compse  --version 
+   79  docker-compse  version 
+   80  sudo apt-get -y install docker-compose
+   81  docker-compose --version 
+   82  sudo systemctl start docker
+   83  sudo systemctl enable docker
+   84  sudo usermod -a -G docker vipr-demo
+   85  sudo apt update
+   86  sudo apt install golang
+   87  go version
+   88  export PATH=$PATH:/usr/local/go/bin
+   89  pwd
+   90  cd /usr
+   91  ls
+   92  cd bin
+   93  l
+   94  cd
+   95  mkdir -p ~/go/{bin,src,pkg}
+   96  export GOPATH=$HOME/go
+   97  source ~/.bashrc
+   98  go version
+   99  sudo apt-get install jq
+  100  jq version
+  101  jq --version
+  102  curl --version
+  103  mkdir -p $HOME/go/src/github.com/demorripv
+  104  cd $Home/go/src/github.com/demorripv
+  105  ls
+  106  cd go
+  107  ls
+  108  cd src
+  109  ls
+  110  cd github.com/
+  111  ls
+  112  cd demorripv/
+  113  curl -sSLO https://raw.githubusercontent.com/hyperledger/fabric/main/scripts/install-fabric.sh && chmod +x install-fabric.sh
+  114  ls
+  115  ./install-fabric.sh -h
+  116  ./install-fabric.sh  docker samples binary
+  117  sudo ./install-fabric.sh  docker samples binary
+  118  su root
+  119  ls
+  120  cd fabric-samples
+  121  ls
+  122  cd test-network
+  123  ls
+  124  sudo ./network.sh up
+  125  docker ps -a
+  126  udodocker ps -a
+  127  sudo docker ps -a
+  128  sudo ./network.sh createChannel 
+  129  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  130  ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  131  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  132  ls
+  133  cd ..
+  134  ./network.sh
+  135  cd test-network
+  136  ./network.sh down
+  137  sudo ./network.sh down
+  138  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  139  sudo ./network.sh up createchannel 
+  140  sudo ./network.sh up createChannel 
+  141  cd ..
+  142  cd asset-transfer-basic/
+  143  cd chaincode-go/
+  144  go mod tidy
+  145  go mod vendor
+  146  go mod tidy
+  147  cd
+  148  cd go/src/github.com/hyperledger/fabric-samples/
+  149  cd asset-transfer-basic/chaincode-go
+  150  go mod tidy
+  151  source ~/.bashrc
+  152  cd
+  153  sudo -l
+  154  docker ps
+  155  sudo docker ps
+  156  clear
+  157  cd ~/go/src/github.com/demorripv/fabric-samples/test-network
+  158  export PATH=${PWD}/../bin:$PATH
+  159  cd ../..
+  160  cd ..
+  161  ls
+  162  cd ..
+  163  ls
+  164  cd bin
+  165  ls
+  166  cd ~/go/src/github.com/demorripv/fabric-samples/test-network
+  167  cd ..
+  168  ls
+  169  cd bin
+  170  ls
+  171  cat peer
+  172  cd ..
+  173  ls
+  174  cd config
+  175  ls
+  176  cd ..
+  177  export FABRIC_CFG_PATH=$PWD/../config/
+  178  go get -u all
+  179  ls
+  180  docker images
+  181  sudo docker images
+  182  sudo docker ps
+  183  sudo exec -ti cli bash
+  184  sudo docker  exec -ti cli bash
+  185  sudo docker  exec -ti peer0.org1.example.com bash
+  186  cd
+  187  echo $GOPATH
+  188  echo $GO111MODULE
+  189  go version
+  190  export GOPATH=$HOME/go
+  191  echo $GOPATH
+  192  pwd
+  193  export GO111MODULE=on
+  194  echo $GO111MODULE
+  195  sudo .bashrc
+  196  sudo nano .bashrc
+  197  cd go 
+  198  cd src
+  199  cd github.com/
+  200  hyperledger
+  201  cd hyperledger
+  202  cd fabric-samples/
+  203  cd test-network
+  204  ls
+  205  ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  206  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  207  go version
+  208  Error: failed to normalize chaincode path: 'go list' failed with: build github.com/hyperledger/fabric-samples/asset-transfer-basic/chaincode-go: cannot load io/fs: malformed module path "io/fs": missing dot in first path element: exit status 1
+  209  sudo apt remove golang
+  210  cd Downloads/
+  211  ls
+  212  sudo tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz 
+  213  ls
+  214  go version
+  215  cd
+  216  cd /usr/local
+  217  ls
+  218  cd go
+  219  ls
+  220  cd bin
+  221  ls
+  222  go --version
+  223  go version
+  224  ./go version
+  225  cd
+  226  ./go version
+  227  go version
+  228  source ~/.bashrc
+  229  go version
+  230  cd /usr/local/
+  231  ls
+  232  cd
+  233  go version
+  234  which go 
+  235  cd /usr/bin/go
+  236  cd /usr/bin
+  237  ls
+  238  rm go
+  239  sudo rm go
+  240  ls
+  241  go version
+  242  cd
+  243  go version
+  244  export PATH=$PATH:/usr/local/go/bin
+  245  go version
+  246  clear
+  247  sudo docker ps
+  248  ls
+  249  cd go/src
+  250  ls
+  251  cd github.com
+  252  cd hyperledger
+  253  cd fabric-samples/
+  254  ls
+  255  cd test
+  256  cd test-network
+  257  ls
+  258  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  259  go --version
+  260  go version
+  261  which GO111MODULE
+  262  echo  GO111MODULE
+  263  export PATH=${PWD}/../bin:/usr/local/go/bin:$PATH
+  264  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  265  cd ..
+  266  chmod -R 777 /test-network/
+  267  chmod -R 777 test-network/
+  268  sudo chmod -R 777 test-network/
+  269  cd test-network
+  270  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  271  ls
+  272  export FABRIC_CFG_PATH=$PWD/../config/
+  273  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  274  pwd
+  275  ls
+  276  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  277  export CORE_PEER_TLS_ENABLED=true
+  278  export CORE_PEER_LOCALMSPID="Org2MSP"
+  279  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+  280  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+  281  export CORE_PEER_ADDRESS=localhost:9051
+  282  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  283  ls 
+  284  cd ..
+  285  cd asset-transfer-basic/
+  286  ls
+  287  cd chaincode-go
+  288  ls
+  289  peer lifecycle chaincode install basic.tar.gz
+  290  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  291  export CORE_PEER_TLS_ENABLED=true
+  292  export CORE_PEER_LOCALMSPID="Org1MSP"
+  293  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  294  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  295  export CORE_PEER_ADDRESS=localhost:7051
+  296  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  297  cd ../..
+  298  cd test-network
+  299  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  300  export CORE_PEER_TLS_ENABLED=true
+  301  export CORE_PEER_LOCALMSPID="Org1MSP"
+  302  export CORE_PEER_TLS_ENABLED=true
+  303  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  304  export CORE_PEER_ADDRESS=localhost:7051
+  305  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  306  ls
+  307  pwd
+  308  export CORE_PEER_TLS_ENABLED=true
+  309  export CORE_PEER_LOCALMSPID="Org1MSP"
+  310  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  311  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  312  export CORE_PEER_ADDRESS=localhost:7051
+  313  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  314  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses loca
+  315  sudo ./network.sh down
+  316  ls
+  317  cd scripts
+  318  ls
+  319  go version
+  320  go -h
+  321  go version
+  322  go run
+  323  go version
+  324  cd ..
+  325  cd asset-transfer-basic/chaincode-go/
+  326  go mod tidy
+  327  sudo go mod tidy
+  328  sudo go mod vendor 
+  329  peer
+  330  peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-go --lang golang --label basic_1.0.1
+  331  peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-go/chaincode --lang golang --label basic_1.0.1
+  332  sudo peer lifecycle chaincode package basic.tar.gz --path ../asset-transfer-basic/chaincode-go/chaincode --lang golang --label basic_1.0.1
+  333  peer lifecycle chaincode package basic.tar.gz --path . --lang golang --label basic_1.0.1
+  334  ls
+  335  cd ..
+  336  cd test-network
+  337  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  338  sudo docker ps
+  339  cd
+  340  sudo chmod -R 777 /go
+  341  sudo chmod -R 777 ~/go
+  342  cd /usr
+  343  ls
+  344  pwd
+  345  cd local
+  346  ls
+  347  cd go
+  348  ls
+  349  cd bin
+  350  ls
+  351  ./go version
+  352  cd ../..
+  353  cd ..
+  354  ls
+  355  cd bin
+  356  ls
+  357  sudo cp /usr/local/go/bin/go /usr/bin/
+  358  ls
+  359  sudo cp /usr/local/go/bin/gofmt /usr/bin/
+  360  ls
+  361  cd
+  362  export GOROOT=/usr/bin/go
+  363  echo "GOROOT"
+  364  echo GOROOT
+  365  cd /usr
+  366  ls
+  367  bin
+  368  cd bin
+  369  ls
+  370  go version
+  371  rm go
+  372  ./go
+  373  ./go version
+  374  sudo rm go 
+  375  ls
+  376  go
+  377  ./go version
+  378  cd ..
+  379  ls
+  380  cd local/
+  381  ls
+  382  cd go
+  383  ls
+  384  go version
+  385  ls
+  386  cd bin 
+  387  ls
+  388  ./go version
+  389  export PATH=${PWD}/../bin:/usr/local/go/bin:$PATH
+  390  go -ver
+  391  go version
+  392  go test
+  393  which go
+  394  sudo ln -s /usr/local/go/bin/go /usr/bin/go
+  395  which go
+  396  sudo cp /usr/local/go/bin/go /usr/bin/
+  397  sudo ln -s /usr/local/go/bin/go /usr/bin/go
+  398  which go
+  399  go version
+  400  cd
+  401  nano .bashrc
+  402  source ~./bashrc
+  403  source ~/.bashrc
+  404  go version
+  405  which go
+  406  go 
+  407  go bug
+  408  which
+  409  ls
+  410  which go
+  411  export GOROOT=/usr/local/go/bin/go
+  412  go version
+  413  source ~/.bashrc
+  414  go version
+  415  nano .bashrc
+  416  sudo docker ps
+  417  sudo docker images
+  418  sudo docker ps
+  419  sudo docker stop logsout
+  420  sudo docker stop logspout
+  421  ls
+  422  sudo docker ps
+  423  sudo docker images
+  424  sudo docker ps
+  425  cd /usr
+  426  ls
+  427  cd local/
+  428  ls
+  429  cd go
+  430  ls
+  431  cd bin
+  432  ls
+  433  ./go version
+  434  cd ../..
+  435  ls
+  436  cd bin
+  437  ls
+  438  cd ../..
+  439  ls
+  440  cd bin
+  441  ls
+  442  ./go version
+  443  go version
+  444  cd go
+  445  go
+  446  cd
+  447  go version
+  448  cd /usr
+  449  ls
+  450  cd bin
+  451  ls
+  452  cd ..
+  453  ls
+  454  cd local/
+  455  ls
+  456  cd bin
+  457  ls
+  458  cd
+  459  echo $PATH
+  460  ./monitordocker.sh fabric_test
+  461  sudo ./monitordocker.sh fabric_test
+  462  cd
+  463  nano .bashrc
+  464  source ~/.bashrc
+  465  which docker
+  466  docker version
+  467  ./monitordocker.sh fabric_test
+  468  sudo ./monitordocker.sh fabric_test
+  469  docker ps
+  470  sudo docker ps
+  471  clear
+  472  sudo ./network.sh down
+  473  ls
+  474  cd go
+  475  ls
+  476  cd src/github.com/hyperledger
+  477  ls
+  478  cd fabric-samples/
+  479  cd test-network
+  480  ls
+  481  clear
+  482  sudo ./network.sh down
+  483  sudo ./network.sh up -ca
+  484  sudo ./network.sh createChannel
+  485  cd ..
+  486  sudo chmod -R 777 test-network/
+  487  cd test-network
+  488  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go/ -ccl go
+  489  cd
+  490  sudo apt install software-properties-common apt-transport-https wget
+  491  wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+  492  sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+  493  sudo apt update
+  494  sudo apt install code 
+  495  code
+  496  git 
+  497  cd ..
+  498  cd application-go
+  499  ls
+  500  go build
+  501  ls
+  502  go run asset-transfer-basic 
+  503  go run main.go
+  504  ls
+  505  go run assetTransfer.go 
+  506  export $PATH
+  507  cd ..
+  508  ls
+  509  cd application-typescript
+  510  ls
+  511  npm instal
+  512  npm install
+  513  ls
+  514  export CORE_PEER_TLS_ENABLED=true
+  515  export CORE_PEER_LOCALMSPID="Org1MSP"
+  516  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  517  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  518  export CORE_PEER_ADDRESS=localhost:7051
+  519  npm start getAllAssets
+  520  node version
+  521  node.js version
+  522  npm version
+  523  ls
+  524  cd go
+  525  cd src
+  526  ls
+  527  cd github.com/
+  528  cd hyperledger
+  529  cd fabric-samples/
+  530  cd test-network
+  531  ll
+  532  cd ..
+  533  ls
+  534  cd asset-transfer-basic/
+  535  ls
+  536  cd application-gateway-go
+  537  ls
+  538  clear
+  539  go mod vendor
+  540  export GOROOT=/usr/local/go/bin/go
+  541  go mod vendor
+  542  ls
+  543  export PATH=${PWD}/usr/local/go/bin:$PATH
+  544  go mod vendor
+  545  ./go mod vendor
+  546  GO111MODULE=on
+  547  go mod vendor
+  548  which go
+  549  GOROOT=/usr/local/go/bin/go
+  550  go mod vendor
+  551  GOROOT=/usr/local/go/bin/go
+  552  GOROOT=/usr/local/go/bin
+  553  which go
+  554  go version
+  555  clear 
+  556  go mod vendor
+  557  go build 
+  558  ls
+  559  export GOPROXY=https://proxy.golang.org,direct
+  560  go mod vendor
+  561  go build
+  562  go mod tidy
+  563  ls
+  564  go version
+  565  which go
+  566  pwd
+  567  cd
+  568  source ~/.bashrc
+  569  cd /home/vipr-demo/go/src/github.com/hyperledger/fabric-samples/asset-transfer-basic/application-gateway-go
+  570  go build
+  571  ls
+  572  ./assetTransfer
+  573  sudo ./assetTransfer
+  574  pwd
+  575  pwd 
+  576  cd ../..
+  577  ls
+  578  cd test-network
+  579  export PATH=${PWD}/../bin:$PATH
+  580  export FABRIC_CFG_PATH=$PWD/../config/
+  581  ls
+  582  export CORE_PEER_TLS_ENABLED=true
+  583  export CORE_PEER_LOCALMSPID="Org1MSP"
+  584  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  585  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  586  export CORE_PEER_ADDRESS=localhost:7051
+  587  CORE_PEER_TLS_ENABLED
+  588  echo "CORE_PEER_TLS_ENABLED"
+  589  echo CORE_PEER_TLS_ENABLED
+  590  cd /home/vipr-demo/go/src/github.com/hyperledger/fabric-samples/asset-transfer-basic/application-gateway-go
+  591  ./assetTransfer 
+  592  sudo ./assetTransfer 
+  593  sudo docker exec -ti peer0.org1.example.com peer node start
+  594  sudo docker images 
+  595  go version
+  596  go env GOROOT
+  597  cd ..
+  598  cd asset-transfer-basic/application-gateway-go
+  599  ls
+  600  go build
+  601  ls
+  602  sudo ./assetTransfer
+  603  sudo ./assetTransfer GetAllAssets
+  604  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  605  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  606  cd 
+  607  sudo chmod -R 777 test-network/
+  608  cd go/src/github.com/hyperledger/fabric-samples/
+  609  sudo chmod -R 777 test-network/
+  610  cd
+  611  nano .bashrc
+  612  cd go/src/github.com/hyperledger/fabric-samples/test-network
+  613  ./network.sh up createChannel
+  614  sudo ./network.sh up createChannel
+  615  peer -
+  616  peer
+  617  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  618  export PATH=${PWD}/../bin:$PATH
+  619  export FABRIC_CFG_PATH=$PWD/../config/
+  620  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  621  export CORE_PEER_TLS_ENABLED=true
+  622  export CORE_PEER_LOCALMSPID="Org2MSP"
+  623  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+  624  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+  625  export CORE_PEER_ADDRESS=localhost:9051
+  626  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  627  peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+  628  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"TransferAsset","Args":["asset6","Christopher"]}'
+  629  peer chaincode query -C mychannel -n basic -c '{"Args":["asset6"]}'
+  630  peer chaincode query -C mychannel -n basic -c '{"Args":["ReadAsset","asset6"]}'
+  631  peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 1 --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" --output json
+  632  peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 2 --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" --output json
+  633  peer lifecycle chaincode querycommitted --channelID mychannel --name basic --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
+  634  peer lifecycle chaincode queryinstalled
+  635  sudo ./network.sh down
+  636  history 
+  637  history >> command.txt
+  638  ls
+  639  mv command.txt ~/Desktop/
+  640  ls
+  641  sudo docker -ps
+  642  clear
+  643  sudo docker ps
+  644  sudo docker exec -ti peer0.org1.example.com
+  645  sudo docker exec -ti peer0.org1.example.com bash
+  646  sudo docker exec -ti peer0.org1.example.com /bin/bash
+  647  sudo docker exec -ti cli export CORE_PEER_TLS_ENABLED=true
+  648  sudo docker exec -ti cli peer chaincode query -C mychannel -n basic -c '{"Args":["GetAllAssets"]}'
+  649  cd ../../..
+  650  cd fabric-samples/
+  651  cd test-network
+  652  node js
+  653  sudo apt update 
+  654  sudo apt install nodejs
+  655  node --version
+  656  sudo apt install npm
+  657  npm --version
+  658  clear
+  659  sudo ./network.sh up createChannel -c mychannel -ca
+  660  sudo ./network.sh up createChannel -c mychannel 
+  661  sudo ./network.sh down
+  662  sudo docker ps
+  663  sudo ./network.sh up createChannel -ca
+  664  cd .. 
+  665  chmod -R 777 /test-network
+  666  chmod -R 777 test-network/
+  667  sudo chmod -R 777 test-network/
+  668  sudo ./network.sh down
+  669  cd test-network
+  670  sudo ./network.sh down
+  671  cd ..
+  672  sudo chmod -R 777 test-network/
+  673  cd test-network
+  674  sudo ./network.sh up createChannel -ca
+  675  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  676  cd  ..
+  677  sudo chmod -R 777 test-network/
+  678  cd test-network
+  679  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  680  export PATH=${PWD}/../bin:$PATH
+  681  export FABRIC_CFG_PATH=$PWD/../config/
+  682  peer version
+  683  export CORE_PEER_TLS_ENABLED=true
+  684  export CORE_PEER_LOCALMSPID="Org1MSP"
+  685  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  686  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  687  export CORE_PEER_ADDRESS=localhost:7051
+  688  peer lifecycle chaincode queryinstalled
+  689  export CC_PACKAGE_ID=basic_1.0:e0ad80d587a51f688125cbc743de26de6e03a7c3238e57c2c592a369b7dc92ed
+  690  peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name basic --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
+  691  sudo ./network.sh down
+  692  sudo docker ps
+  693  sudo dockerimages
+  694  sudo docker images
+  695  clear
+  696  sudo ./network.sh createChannel
+  697  cd .. 
+  698  sudo chmod -R 777 test-network/
+  699  cd test-network
+  700  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
+  701  cd ..
+  702  sudo chmod -R 777 test-network/
+  703  sudo sh /media/cdrom/VBoxLinuxAdditions.run
+  704  sudo sh /media/vipr-demo/VBox_GAs_7.0.8/VBoxLinuxAdditions.run
+  705  sudo reboot
+  706  cd 
+  707  cd Downloads/
+  708  cd fabric-samples-release-1.4/
+  709  cd chaincode-docker-devmode/
+  710  ls
+  711  docker-compose -f docker-compose-simple.yaml up
+  712  cd
+  713  sudo exec -it cli sh
+  714  sudo docker exec -it cli_dev sh
+  715  sudo docker stop cli_dev
+  716  sudo docker start cli_dev
+  717  sudo docker ps -a
+  718  clear
+  719  docker images
+  720  docker run cli_dev
+  721  sudo docker run cli_dev
+  722  docker ps -a
+  723  docker ps -a
+  724  sudo docker start cli_dev
+  725  sudo exec -it cli_dev sh
+  726  sudo docker exec -it cli_dev sh
+  727  sudo docker start cli
+  728  docker ps -a
+  729  sudo docker exec -it cli  sh
+  730  docker ps -a
+  731  docker stop cli
+  732  docker ps -a
+  733  sudo docker start cli_dev
+  734  sudo docker exec -it cli_dev  sh
+  735  sudo docker logs cli_dev
+  736  clear
+  737  docker ps -a
+  738  sudo docker start orderer
+  739  sudo docker start cli_dev
+  740  docker ps -a
+  741  docker exec -it cli_dev bash
+  742  docker exec -it cli_dev 
+  743  docker exec -it cli_dev sh
+  744  sudo docker start orderer
+  745  docker ps -a
+  746  docker stop chaincode 
+  747  docker stop chaincode peer
+  748  docker ps -a
+  749  docker stop
+  750  docker stop --hel[
+  751  docker stop --help
+  752  docker images
+  753  docker ps
+  754  docker ps -a
+  755  cd ..
+  756  sudo chmod -R 766 chaincode-docker-devmode/
+  757  cd chaincode-docker-devmode/
+  758  ls
+  759  cd..
+  760  cd  ..
+  761  sudo chmod -R 777 chaincode-docker-devmode
+  762  cd chaincode
+  763  cd ..
+  764  cd chaincode-docker-devmode/
+  765  ls
+  766  sudo chmod -R 777 /Downloads/fabric-samples-release-1.4/chaincode-docker-devmode$
+  767  cd
+  768  sudo chmod -R 777 /Downloads/fabric-samples-release-1.4/chaincode-docker-devmode$
+  769  sudo chmod -R 777 Downloads/fabric-samples-release-1.4/chaincode-docker-devmode$
+  770  ls
+  771  cd D
+  772  cd Downloads
+  773  sudo chmod -R 777 fabric-samples-release-1.4/chaincode-docker-devmode$
+  774  sudo chmod -R 777 fabric-samples-release-1.4
+  775  cd
+  776  sudo chmod -R 777 Downloads/fabric-samples-release-1.4/chaincode-docker-devmode
+  777  cd Downloads//fabric-samples-release-1.4/chaincode-docker-devmode/
+  778  sudo docker-compose -f docker-compose-simple.yaml up
+  779  docker  ps -a
+  780  git rev-list --all
+  781  ls
+  782  git init
+  783  git remote add Cyber-winnie https://github.com/Cyber-Winnie/git-test
+  784  git apply changes.diff
+  785  docker ps
+  786  docker images 
+  787  docker start 7a73187b5c49
+  788  docker start hyperledger/fabric-orderer  
+  789  docker ps -a
+  790  docker start ca_org1
+  791  docker start ca_org2
+  792  docker start ca_orderer
+  793  docker ps -a
+  794  docker images
+  795  sudo ./network.sh down
+  796  docker images
+  797  docker ps -a
+  798  docker stop $(docker ps -aq)
+  799  docker rm $(docker ps -aq)
+  800  sudo docker rm $(docker ps -aq)
+  801  sudo ./network.sh up -ca 
+  802  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go/ -ccl golang
+  803  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go/ -ccl go
+  804  sudo /network.sh  createChannel -c mychannel 
+  805  sudo ./network.sh  createChannel -c mychannel 
+  806  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go/ -ccl go
+  807  peer version
+  808  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  809  cd ../
+  810  chmod -R 777 test-network
+  811  sudo chmod -R 777 test-network
+  812  cd ..
+  813  sudo chmod -R 777 fabric-sample
+  814  sudo chmod -R 777 fabric-samples
+  815  cd fabric-samples/test-network
+  816  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  817  export CORE_PEER_LOCALMSPID="Org1MSP"
+  818  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+  819  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+  820  export CORE_PEER_ADDRESS=localhost:7051
+  821  peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel --name basic --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem"
+  822  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  823  ls
+  824  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem" -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt" --peerAddresses localhost:9051 --tlsRootCertFiles "${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt" -c '{"function":"InitLedger","Args":[]}'
+  825  sudo ./network.sh down 
+  826  ls 
+  827  ccd ..
+  828  ls
+  829  sudo chmod -R 777 test-network
+  830  cd ..
+  831  sudo chmod -R 777 test-network
+  832  cd test-network
+  833  sudo ./network.sh up createChannel -c mychannel -ca
+  834  sudo ./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go/ -ccl go
+  835  cd ..\
+  836  cd ..
+  837  ls
+  838  cd asset-transfer-basic/
+  839  cd application-gateway-go
+  840  ls
+  841  ./assetTransfer
+  842  sudo ./assetTransfer
+  843  ls
+  844  sudo ./assetTransfer.go
+  845  cd ..
+  846  pwd
+  847  cd test-network
+  848  ls
+  849  pwd
+  850  export CORE_PEER_LOCALMSPID="Org2MSP"
+  851  export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+  852  export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+  853  export CORE_PEER_ADDRESS=localhost:9051
+  854  cd ../asset-transfer-basic/application-gateway-go
+  855  go run
+  856  ls
+  857  go run assetTransfer.go
+  858  sudo go run assetTransfer.go
+  859  ls
+  860  chmod +x assetTransfer
+  861  sudo ./assetTransfer
+  862  go run assetTransfer.go -getAllAssets
+  863  sudo go run assetTransfer.go -getAllAssets
+  864  sudo go run assetTransfer.go 
+  865  sudo go run assetTransfer.go  -h
+  866  sudo go run assetTransfer.go  -getAllAssets
+  867  sudo go run assetTransfer.go getAllAssets
+  868  sudo ./assetTransfer -getAllAssets
+  869  sudo ./assetTransfer -h
+  870  sudo ./assetTransfer -transferAssetAsync -assetID "asset103" -newOwner "esther"
+  871  sudo ./assetTransfer -transferAsset -assetID "asset103" -newOwner "esther"
+  872  sudo ./assetTransfer -transferAsset -assetID "asset123" -newOwner "esther"
+  873  sudo ./assetTransfer -createAsset -assetID "asset103" -color "red" -size "700" -owner "esther" -value "2024"
+  874  sudo ./assetTransfer -getAllAssets
+  875  sudo ./assetTransfer -initLedger 
+  876  sudo ./assetTransfer -createAsset -assetID "asset104" -color "black" -size "800" -owner "maryelle" -value "2025"
+  877  sudo ./assetTransfer -getAllAssets
+  878  history >>history.txt

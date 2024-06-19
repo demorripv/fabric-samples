@@ -12,6 +12,7 @@ import (
 	"crypto/x509"
 	"encoding/json"
 	"errors"
+	"flag"
 	"fmt"
 	"os"
 	"path"
@@ -42,6 +43,40 @@ func main() {
 	// The gRPC client connection should be shared by all Gateway connections to this endpoint
 	clientConnection := newGrpcConnection()
 	defer clientConnection.Close()
+
+	//define flags for communiaction with the cli
+	var (
+		getAllAssetsFlag  bool
+		createAssetFlag   bool
+		readAssetFlag     bool
+		updateAssetFlag   bool
+		deleteAssetFlag   bool
+		transferAssetFlag bool
+		exampleErrorFlag  bool
+		assetID           string
+		newOwner          string
+		color             string
+		size              string
+		owner             string
+		value             string
+	)
+
+	flag.BoolVar(&getAllAssetsFlag, "getAllAssets", false, "Get all assets from the ledger")
+	flag.BoolVar(&createAssetFlag, "createAsset", false, "Create an asset on the ledger")
+	flag.BoolVar(&readAssetFlag, "readAsset", false, "Read an asset from the ledger")
+	flag.BoolVar(&updateAssetFlag, "updateAsset", false, "Update an asset on the ledger")
+	flag.BoolVar(&deleteAssetFlag, "deleteAsset", false, "Delete an asset from the ledger")
+	flag.BoolVar(&transferAssetFlag, "transferAsset", false, "Transfer an asset")
+	flag.BoolVar(&exampleErrorFlag, "exampleError", false, "Run the example error handling")
+	flag.StringVar(&assetID, "assetID", "", "The asset ID")
+	flag.StringVar(&newOwner, "newOwner", "", "The new owner of the asset")
+	flag.StringVar(&color, "color", "", "The color of the asset")
+	flag.StringVar(&size, "size", "", "The size of the asset")
+	flag.StringVar(&owner, "owner", "", "The owner of the asset")
+	flag.StringVar(&value, "value", "", "The value of the asset")
+
+	//parse flags
+	flag.Parse()
 
 	id := newIdentity()
 	sign := newSign()
@@ -76,12 +111,19 @@ func main() {
 	network := gw.GetNetwork(channelName)
 	contract := network.GetContract(chaincodeName)
 
-	initLedger(contract)
-	getAllAssets(contract)
-	createAsset(contract)
-	readAssetByID(contract)
-	transferAssetAsync(contract)
-	exampleErrorHandling(contract)
+	// Conditional execution based on flags
+	if getAllAssetsFlag {
+		getAllAssets(contract)
+	} else if createAssetFlag {
+		createAsset(contract, assetID, color, size, owner, value)
+	} else if readAssetFlag {
+		readAssetByID(contract, assetID)
+	} else if transferAssetFlag {
+		transferAssetAsync(contract, assetID, newOwner)
+	} else if exampleErrorFlag {
+		exampleErrorHandling(contract)
+	}
+
 }
 
 // newGrpcConnection creates a gRPC connection to the Gateway server.
@@ -178,10 +220,10 @@ func getAllAssets(contract *client.Contract) {
 }
 
 // Submit a transaction synchronously, blocking until it has been committed to the ledger.
-func createAsset(contract *client.Contract) {
+func createAsset(contract *client.Contract, assetID string, color string, size string, owner string, value string) {
 	fmt.Printf("\n--> Submit Transaction: CreateAsset, creates new asset with ID, Color, Size, Owner and AppraisedValue arguments \n")
 
-	_, err := contract.SubmitTransaction("CreateAsset", assetId, "yellow", "5", "Tom", "1300")
+	_, err := contract.SubmitTransaction("CreateAsset", assetID, color, size, owner, value)
 	if err != nil {
 		panic(fmt.Errorf("failed to submit transaction: %w", err))
 	}
@@ -190,10 +232,10 @@ func createAsset(contract *client.Contract) {
 }
 
 // Evaluate a transaction by assetID to query ledger state.
-func readAssetByID(contract *client.Contract) {
+func readAssetByID(contract *client.Contract, assetID string) {
 	fmt.Printf("\n--> Evaluate Transaction: ReadAsset, function returns asset attributes\n")
 
-	evaluateResult, err := contract.EvaluateTransaction("ReadAsset", assetId)
+	evaluateResult, err := contract.EvaluateTransaction("ReadAsset", assetID)
 	if err != nil {
 		panic(fmt.Errorf("failed to evaluate transaction: %w", err))
 	}
@@ -204,10 +246,10 @@ func readAssetByID(contract *client.Contract) {
 
 // Submit transaction asynchronously, blocking until the transaction has been sent to the orderer, and allowing
 // this thread to process the chaincode response (e.g. update a UI) without waiting for the commit notification
-func transferAssetAsync(contract *client.Contract) {
+func transferAssetAsync(contract *client.Contract, assetID string, newOwner string) {
 	fmt.Printf("\n--> Async Submit Transaction: TransferAsset, updates existing asset owner")
 
-	submitResult, commit, err := contract.SubmitAsync("TransferAsset", client.WithArguments(assetId, "Mark"))
+	submitResult, commit, err := contract.SubmitAsync("TransferAsset", client.WithArguments(assetID, newOwner))
 	if err != nil {
 		panic(fmt.Errorf("failed to submit transaction asynchronously: %w", err))
 	}

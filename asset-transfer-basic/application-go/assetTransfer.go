@@ -7,6 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -18,7 +19,35 @@ import (
 
 func main() {
 	log.Println("============ application-golang starts ============")
+	// Define Flags
+	var (
+		getAllAssetsFlag bool
+		createAssetFlag  bool
+		readAssetFlag    bool
+		updateAssetFlag  bool
+		deleteAssetFlag  bool
+		assetID          string
+		color            string
+		size             string
+		owner            string
+		value            string
+	)
 
+	flag.BoolVar(&getAllAssetsFlag, "getAllAssets", false, "Get all assets from the ledger")
+	flag.BoolVar(&createAssetFlag, "createAsset", false, "Create an asset on the ledger")
+	flag.BoolVar(&readAssetFlag, "readAsset", false, "Read an asset from the ledger")
+	flag.BoolVar(&updateAssetFlag, "updateAsset", false, "Update an asset on the ledger")
+	flag.BoolVar(&deleteAssetFlag, "deleteAsset", false, "Delete an asset from the ledger")
+	flag.StringVar(&assetID, "id", "", "The asset ID")
+	flag.StringVar(&color, "color", "", "The color of the asset")
+	flag.StringVar(&size, "size", "", "The size of the asset")
+	flag.StringVar(&owner, "owner", "", "The owner of the asset")
+	flag.StringVar(&value, "value", "", "The value of the asset")
+
+	//parse flags
+	flag.Parse()
+
+	//set up and connect to Fabric
 	err := os.Setenv("DISCOVERY_AS_LOCALHOST", "true")
 	if err != nil {
 		log.Fatalf("Error setting DISCOVERY_AS_LOCALHOST environment variable: %v", err)
