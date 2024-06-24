@@ -1,8 +1,11 @@
 package chaincode
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
+	"net/http"
 	"sort"
 	"time"
 
@@ -13,6 +16,8 @@ import (
 type SmartContract struct {
 	contractapi.Contract
 }
+
+var crumb string
 
 // GitCommit describes basic details of what makes up a Git commit
 type GitCommit struct {
@@ -37,6 +42,11 @@ type PushTransaction struct {
 type RepositoryVersion struct {
 	Repository    string `json:"Repository"`
 	VersionNumber int    `json:"VersionNumber"`
+}
+
+type BuildRequest struct {
+	RemoteURL  string `json:"remoteURL"`
+	CommitHash string `json:"commitHash"`
 }
 
 // InitLedger adds a base set of GitCommits to the ledger
@@ -376,4 +386,121 @@ func (s *SmartContract) GetAllPushTransactions(ctx contractapi.TransactionContex
 // GetEvaluateTransactions returns functions of ComplexContract not to be tagged as submit
 func (s *SmartContract) GetEvaluateTransactions() []string {
 	return []string{"ReadGitCommit"}
+}
+
+func getCrumb(jenkinsURL, username, apiToken string) (string, error) {
+	client := &http.Client{}
+	req, err := http.NewRequest("GET", jenkinsURL+"/crumbIssuer/api/json", nil)
+	if err != nil {
+		return "", fmt.Errorf("failed to create request: %v", err)
+	}
+	req.SetBasicAuth(username, apiToken)
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("failed to send request: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body) // Reading the response body for more details
+		return "", fmt.Errorf("failed to get crumb: status %v, response: %s", resp.StatusCode, string(body))
+	}
+
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return "", fmt.Errorf("failed to read response body: %v", err)
+	}
+
+	var crumbResponse struct {
+		Crumb string `json:"crumb"`
+	}
+	err = json.Unmarshal(body, &crumbResponse)
+	if err != nil {
+		return "", fmt.Errorf("failed to unmarshal response: %v", err)
+	}
+
+	return crumbResponse.Crumb, nil
+}
+
+func (s *SmartContract) TriggerBuild(ctx contractapi.TransactionContextInterface, repository string) (string, error) {
+	// Retrieve the latest push transaction details from the ledger
+
+	resultsIterator, err := ctx.GetStub().GetStateByRange("", "")
+	if err != nil {
+		return "", fmt.Errorf("failed to get state by range: %v", err)
+	}
+	defer resultsIterator.Close()
+
+	var latestPushTransaction PushTransaction
+	var found bool
+
+	for resultsIterator.HasNext() {
+		queryResponse, err := resultsIterator.Next()
+		if err != nil {
+			return "", fmt.Errorf("failed to iterate query results: %v", err)
+		}
+
+		var pushTransaction PushTransaction
+		err = json.Unmarshal(queryResponse.Value, &pushTransaction)
+		if err != nil {
+			return "", fmt.Errorf("failed to unmarshal query response: %v", err)
+		}
+
+		if pushTransaction.Repository == repository {
+			if !found || pushTransaction.Timestamp > latestPushTransaction.Timestamp {
+				latestPushTransaction = pushTransaction
+				found = true
+			}
+		}
+	}
+
+	if !found {
+		return "", fmt.Errorf("no push transactions found for repository %s", repository)
+	}
+
+	// Construct the build request
+	buildRequest := BuildRequest{
+		RemoteURL:  latestPushTransaction.RemoteURL,
+		CommitHash: latestPushTransaction.CommitHash,
+	}
+	buildRequestJSON, err := json.Marshal(buildRequest)
+	if err != nil {
+		return "", fmt.Errorf("failed to marshal build request: %v", err)
+	}
+
+	// Jenkins configuration
+	jenkinsURL := "http://192.168.1.95:8080"
+	username := "viprdemo"
+	apiToken := "115ecf1d46df2804a644aa40c67c77ce44"
+
+	// Get Jenkins crumb for CSRF protection
+
+	crumb, err = getCrumb(jenkinsURL, username, apiToken)
+	if err != nil {
+		return "", fmt.Errorf("failed to get Jenkins crumb: %v", err)
+	}
+
+	// Send the build request to Jenkins
+	client := &http.Client{}
+	req, err := http.NewRequest("POST", jenkinsURL+"/job/GuixBuildPipeline/buildWithParameters?token=demovipr", bytes.NewBuffer(buildRequestJSON))
+	if err != nil {
+		return "", fmt.Errorf("failed to create request: %v", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	req.Header.Set("Jenkins-Crumb", crumb)
+	req.SetBasicAuth(username, apiToken)
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("failed to send build request to Jenkins: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		body, _ := io.ReadAll(resp.Body) // Reading the response body for more details
+		return "", fmt.Errorf("Jenkins build request failed with status: %v, response: %s", resp.StatusCode, string(body))
+	}
+
+	return "Build process triggered successfully via Jenkins", nil
 }
